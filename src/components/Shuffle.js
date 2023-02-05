@@ -8,7 +8,12 @@ function Shuffle({ setActiveCountry, countries }) {
 
   return (
     <div className="shuffle">
-      <button onClick={() => selectActiveCountry(countries)}>Shuffle</button>
+      <button
+        onClick={() => selectActiveCountry(countries)}
+        disabled={countries?.length === 0}
+      >
+        Shuffle
+      </button>
     </div>
   );
 }

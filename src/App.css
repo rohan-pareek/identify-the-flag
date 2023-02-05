@@ -19,6 +19,13 @@
   font-size: 18px;
 }
 
+.shuffle button:disabled {
+  pointer-events: none;
+  background-color: #ddd;
+  color: #fff;
+  cursor: default;
+}
+
 .show-result {
   border-radius: 20px;
   padding: 10px 20px;
