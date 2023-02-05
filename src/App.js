@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Flag from "./components/Flag";
+import Header from "./components/Header";
+import Result from "./components/Result";
+import Shuffle from "./components/Shuffle";
+import useCountries from "./hooks/useCountries";
 
 function App() {
+  const countries = useCountries();
+  const [activeCountry, setActiveCountry] = useState({});
+  const [showResult, setShowResult] = useState(false);
+
+  useEffect(() => {
+    setShowResult(false);
+  }, [activeCountry]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <Header />
+      <Shuffle setActiveCountry={setActiveCountry} countries={countries} />
+      <Flag flag={activeCountry?.flag} />
+      {activeCountry?.code && (
+        <button className="show-result" onClick={() => setShowResult(true)}>
+          Show Result
+        </button>
+      )}
+      {showResult && <Result countryName={activeCountry?.name} />}
     </div>
   );
 }
