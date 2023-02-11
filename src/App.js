@@ -28,6 +28,7 @@ function App() {
         </button>
       )}
       {showResult && <Result countryName={activeCountry?.name} />}
+      <footer>{"{ Developed by Rashi Goyal }"}</footer>
     </div>
   );
 }

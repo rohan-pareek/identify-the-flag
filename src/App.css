@@ -44,3 +44,9 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+
+footer {
+  font-weight: bold;
+  margin-top: 50px;
+  color: #333;
+}
